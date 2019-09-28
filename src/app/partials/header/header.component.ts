@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStoreService } from 'src/app/shared/dataStore.service';
+import { CognitoService } from 'src/app/shared/cognito.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor( 
+    private cognitoService: CognitoService,
+    private dataStoreService: DataStoreService) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    console.log("logout");
+    this.cognitoService.logout();
   }
 
 }

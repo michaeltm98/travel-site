@@ -15,6 +15,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DataStoreService } from './shared/dataStore.service';
 import { BackgroundService } from './shared/background.service';
+import { CognitoService } from './shared/cognito.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmCodeModalComponent } from './modals/confirm-code-modal/confirm-code-modal.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -25,17 +29,21 @@ import { BackgroundService } from './shared/background.service';
     NewPostComponent,
     ViewPostComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ConfirmCodeModalComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     FormsModule,
+    NgbModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [DataStoreService, BackgroundService],
+  entryComponents: [ConfirmCodeModalComponent],
+  providers: [DataStoreService, BackgroundService, CognitoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

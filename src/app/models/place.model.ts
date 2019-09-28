@@ -1,7 +1,7 @@
 export class Place {
     private _name: string;
     private _image: string;
-    private _owner: string;
+    private _author: string;
     private _placeId: string;
     private _description: string;
 
@@ -63,11 +63,11 @@ export class Place {
 	}
 
     /**
-     * Getter owner
+     * Getter author
      * @return {string}
      */
-	public get owner(): string {
-		return this._owner;
+	public get author(): string {
+		return this._author;
     }
     
     /**
@@ -87,11 +87,11 @@ export class Place {
 	}
 
     /**
-     * Setter owner
+     * Setter author
      * @param {string} value
      */
-	public set owner(value: string) {
-		this._owner = value;
+	public set author(value: string) {
+		this._author = value;
 	}
 
 

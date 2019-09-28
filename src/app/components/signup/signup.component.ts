@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import { CognitoService } from 'src/app/shared/cognito.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +9,8 @@ import { Form, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   newUserForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, ) { }
+  constructor(private formBuilder: FormBuilder, 
+    private cognitoService: CognitoService) { }
 
   ngOnInit() {
     this.newUserForm = this.formBuilder.group({
@@ -20,6 +22,7 @@ export class SignupComponent implements OnInit {
 
   signup() {
     console.log(this.newUserForm.value);
+    this.cognitoService.signup(this.newUserForm.value);
   }
 
 }

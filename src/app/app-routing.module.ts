@@ -6,6 +6,7 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { ViewPostComponent } from './components/view-post/view-post.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
     { path: 'view-post/:id', component: ViewPostComponent },
     { path: 'sign-up', component: SignupComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'user-page', component: UserPageComponent },
 
 ];
 

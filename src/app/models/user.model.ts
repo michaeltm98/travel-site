@@ -2,8 +2,25 @@ export class User {
     private _username: string;
     private _email: string;
     private _password: string;
+    private _accessToken: any;
 
 
+
+    /**
+     * Getter accessToken
+     * @return {any}
+     */
+	public get accessToken(): any {
+		return this._accessToken;
+	}
+
+    /**
+     * Setter accessToken
+     * @param {any} value
+     */
+	public set accessToken(value: any) {
+		this._accessToken = value;
+	}
 
     /**
      * Getter username

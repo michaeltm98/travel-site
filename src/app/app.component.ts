@@ -6,6 +6,7 @@ import { DataStoreService } from './shared/dataStore.service';
 import { Subject, Observable, of } from 'rxjs';
 import { BackgroundService } from './shared/background.service';
 import { CognitoUserPool, CognitoUserAttribute, CognitoUser } from 'amazon-cognito-identity-js';
+import { CognitoService } from './shared/cognito.service';
 
 @Component({
   selector: 'app-root',
@@ -18,12 +19,12 @@ export class AppComponent {
   places$: Observable<Array<Place>> = new Observable<Array<Place>>();
 
   constructor(private dataStoreService: DataStoreService,
-    private backgroundService: BackgroundService) { }
+    private backgroundService: BackgroundService,
+    private cognitoService: CognitoService) { }
 
   ngOnInit() {
-    this.dataStoreService.refreshPlaces();
     this.places$ = this.dataStoreService.placesChanged;
-
+    this.cognitoService.initialize();
   }
 
 

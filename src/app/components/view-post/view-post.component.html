@@ -1,11 +1,12 @@
 <div *ngIf="place.name" class="container" style="display: inline-block; background: white; margin: 50px;">
+  <h6 style="float: left"> {{ place.author }} </h6>
   <h1 class="center text-center" id="namemirror" style="padding: 30px;"> {{ place.name }} </h1>
   <div class="center text-center justify-content-center" style="display:flex; flex-wrap: wrap">
-      <div style="display: flex;" class="justify-content-center">
+      <div style="display: flex; padding: 20px;" class="justify-content-center">
           
           <div class="thumbnail">
               <img [src]="place.image" style="width: 500px; object-fit: contain" id="imagemirror" alt="">
-              <p  id="descriptionmirror" style="padding: 10px"> {{place.description}} </p>
+              <p *ngIf="dataStoreService.getUser() && dataStoreService.getUser().username == place.author"  id="descriptionmirror" style="padding: 10px"> {{place.description}} </p>
           </div>
       </div>
   </div>

@@ -3,6 +3,7 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { Place } from '../models/place.model';
 import { HttpClient } from '@angular/common/http';
 import { PlacesService } from '../services/places.service';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class DataStoreService {
   constructor(private placeService: PlacesService) { }
   placesChanged: Subject<any> = new Subject<Array<Place>>();
   places: Array<Place>;
+  user: User;
 
   getPlaces(): Array<Place> {
     if (this.places) {
@@ -37,12 +39,20 @@ export class DataStoreService {
   }
 
   refreshPlaces(): void {
-    this.placeService.getPlaces().subscribe((places) => {
+    this.placeService.getPlaces(this.user).subscribe((places) => {
         this.setPlaces(places);
         console.log("Places refreshed")
     })
   }
 
+  getUser(): User {
+    return this.user;
+  }
+
+  setUser(user: User) {
+    this.user = user;
+    this.refreshPlaces();
+  }
 
 
 

@@ -10,12 +10,12 @@
               <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-              <ng-template [ngIf]="dataStoreService.getUser()">
+              <ng-template [ngIf]="user">
                 <a class="nav-link" routerLink="/new-post">New Post</a>
               </ng-template>  
             </li>
           </ul>
-          <ul *ngIf="!dataStoreService.getUser()" class="navbar-nav mr-right">
+          <ul *ngIf="!user" class="navbar-nav mr-right">
             <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                 <a class="nav-link" routerLink="/login">Login</a>
             </li>
@@ -23,9 +23,9 @@
               <a class="nav-link" routerLink="/sign-up">Create Account</a>
             </li>
           </ul>
-          <ul *ngIf="dataStoreService.getUser()" class="navbar-nav mr-right">
+          <ul *ngIf="user" class="navbar-nav mr-right">
             <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-              <a class="nav-link" routerLink="user-page"><h4 *ngIf="dataStoreService.getUser()"> {{ dataStoreService.getUser().username }} </h4></a>
+              <a class="nav-link" routerLink="user-page"><h4 *ngIf="user"> {{ user.username }} </h4></a>
             </li>
           </ul>
           

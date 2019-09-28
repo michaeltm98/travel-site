@@ -14,6 +14,7 @@ export class DataStoreService {
   placesChanged: Subject<any> = new Subject<Array<Place>>();
   places: Array<Place>;
   user: User;
+  userChanged: Subject<any> = new Subject<User>();
 
   getPlaces(): Array<Place> {
     if (this.places) {
@@ -51,6 +52,7 @@ export class DataStoreService {
 
   setUser(user: User) {
     this.user = user;
+    this.userChanged.next(user);
     this.refreshPlaces();
   }
 

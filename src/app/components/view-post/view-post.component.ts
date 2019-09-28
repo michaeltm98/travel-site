@@ -3,6 +3,7 @@ import { Place } from 'src/app/models/place.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PlacesService } from 'src/app/services/places.service';
 import { DataStoreService } from 'src/app/shared/dataStore.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-view-post',
@@ -12,13 +13,14 @@ import { DataStoreService } from 'src/app/shared/dataStore.service';
 export class ViewPostComponent implements OnInit {
   id: string;
   place: Place;
-
+  user: User;
   
   constructor(private route: ActivatedRoute,
     private router: Router,
     private dataStoreService: DataStoreService) { }
 
   ngOnInit() {
+    this.user = this.dataStoreService.getUser();
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
       this.place = this.dataStoreService.getPlaceById(this.id);

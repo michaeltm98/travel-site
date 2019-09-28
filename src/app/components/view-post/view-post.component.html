@@ -6,7 +6,7 @@
           
           <div class="thumbnail">
               <img [src]="place.image" style="width: 500px; object-fit: contain" id="imagemirror" alt="">
-              <p *ngIf="dataStoreService.getUser() && dataStoreService.getUser().username == place.author"  id="descriptionmirror" style="padding: 10px"> {{place.description}} </p>
+              <p *ngIf="user && user.username == place.author"  id="descriptionmirror" style="padding: 10px"> {{place.description}} </p>
           </div>
       </div>
   </div>

@@ -48,7 +48,7 @@ export class ViewPostComponent implements OnInit, OnDestroy {
     this.backgroundService.enableDynamicImages();
   }
 
-  mouseEnter() {
+  mouseClick() {
     this.backgroundService.disableBlur();
     // document.getElementById("placeContainer").style.opacity = "0";
     document.getElementById("placeContainer").classList.remove("fadeIn");
@@ -56,15 +56,12 @@ export class ViewPostComponent implements OnInit, OnDestroy {
     console.log("mouseover");
   }
 
-  mouseExit() {
+  mouseMove() {
     this.backgroundService.enableBlur();
-    // document.getElementById("placeContainer").style.opacity = "1";
-    document.getElementById("placeContainer").classList.add("fadeIn");
+    document.getElementById("placeContainer").style.opacity = "1";
+    // document.getElementById("placeContainer").classList.add("fadeIn");
     document.getElementById("placeContainer").classList.remove("fade");
     console.log("mouseExit");
-  }
-
-  mouseMove() {
   }
 
 }

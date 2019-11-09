@@ -42,6 +42,14 @@ export class BackgroundService {
       this.dynamicImages = true;
   }
 
+  disableBlur(): void {
+    this.blur = "0px";
+  }
+
+  enableBlur(): void {
+    this.blur = "8px";
+  }
+
 
   getBackgroundStyle(place, index): any {
       let url = "";

@@ -30,6 +30,8 @@ export class ViewPostComponent implements OnInit, OnDestroy {
 
     this.dataStoreService.placesChanged.subscribe((places: Array<Place>) => {
       this.place = places.find(p => p.placeId == this.id);
+      this.updateImageUrl(this.place.image);
+
     })
     this.updateImageUrl(this.place.image);
   }
@@ -44,6 +46,25 @@ export class ViewPostComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.backgroundService.enableDynamicImages();
+  }
+
+  mouseEnter() {
+    this.backgroundService.disableBlur();
+    // document.getElementById("placeContainer").style.opacity = "0";
+    document.getElementById("placeContainer").classList.remove("fadeIn");
+    document.getElementById("placeContainer").classList.add("fade");
+    console.log("mouseover");
+  }
+
+  mouseExit() {
+    this.backgroundService.enableBlur();
+    // document.getElementById("placeContainer").style.opacity = "1";
+    document.getElementById("placeContainer").classList.add("fadeIn");
+    document.getElementById("placeContainer").classList.remove("fade");
+    console.log("mouseExit");
+  }
+
+  mouseMove() {
   }
 
 }

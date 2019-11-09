@@ -1,0 +1,55 @@
+#image:hover  {
+    cursor: pointer;
+}
+
+.fade {
+    animation: fadeAnimation 4s linear;
+}
+
+.fadeIn {
+    animation: fadeIn 4s linear;
+}
+
+
+@keyframes fadeAnimation { 
+    0% { 
+      opacity: 1; 
+      animation-timing-function: ease-in;
+    }
+    5% { 
+      opacity: 1; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 0;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 0
+    }
+    25% {
+      opacity: 0
+    }
+  }
+
+  
+@keyframes fadeIn { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    5% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    25% {
+      opacity: 1
+    }
+  }

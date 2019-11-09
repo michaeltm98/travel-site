@@ -3,6 +3,7 @@ import { DataStoreService } from 'src/app/shared/dataStore.service';
 import { CognitoService } from 'src/app/shared/cognito.service';
 import { User } from 'src/app/models/user.model';
 import { Subscription } from 'rxjs';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -15,13 +16,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor( 
     private cognitoService: CognitoService,
-    private dataStoreService: DataStoreService) { }
+    private dataStoreService: DataStoreService,
+    private router: Router) { }
 
   ngOnInit() {
     this.user = this.dataStoreService.getUser();
     this.subscriptions.push(this.dataStoreService.userChanged.subscribe((user: User) => {
       this.user = user;
     }))
+    this.listenForNaviate();
   }
 
   logout() {
@@ -31,6 +34,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptions.map(s => s.unsubscribe());
+  }
+
+  listenForNaviate() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        document.getElementById("navbarSupportedContent").classList.remove('show');
+      }
+    })
   }
 
 }

@@ -1,11 +1,11 @@
-<div *ngIf="place.name" class="container" style="display: inline-block; background: white; margin: 50px;">
+<div id="placeContainer" *ngIf="place.name" class="" style=" background: white; margin: auto; width: 80%; margin-top: 50px;">
   <h6 style="float: left"> {{ place.author }} </h6>
-  <h1 class="center text-center" id="namemirror" style="padding: 30px;"> {{ place.name }} </h1>
+  <h1 class="center text-center" id="namemirror" style="padding: 10px;"> {{ place.name }} </h1>
   <div class="center text-center justify-content-center" style="display:flex; flex-wrap: wrap">
-      <div style="display: flex; padding: 20px;" class="justify-content-center">
+      <div style="display: flex; padding: 20px;" class="justify-content-center row">
           
-          <div class="thumbnail">
-              <img [src]="place.image" style="width: 500px; object-fit: contain" id="imagemirror" alt="">
+          <div class="col-12">
+              <img (mousemove)="mouseMove()" (mouseenter)="mouseEnter()" (mouseout)="mouseExit()" [src]="place.image" style="width: 100%; max-height: 300px; object-fit: contain" id="image" alt="">
               <p *ngIf="user && user.username == place.author"  id="descriptionmirror" style="padding: 10px"> {{place.description}} </p>
           </div>
       </div>

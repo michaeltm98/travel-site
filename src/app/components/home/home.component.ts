@@ -13,7 +13,7 @@ import { User } from 'src/app/models/user.model';
 })
 export class HomeComponent implements OnInit {
   // places$: Observable<Array<Place>> = new Observable<Array<Place>>();
-  user: User;
+  user: User = new User;
   places;
   subscriptions: Array<Subscription> = [];
   
@@ -23,8 +23,13 @@ export class HomeComponent implements OnInit {
     private placeService: PlacesService) { }
 
   ngOnInit() {
+    console.log(this.user);
     this.places = this.dataStoreService.getPlaces().sort((a, b) => (b.rating - a.rating));
-    this.user = this.dataStoreService.getUser();
+    this.dataStoreService.userChanged.subscribe((user: User) => {
+      this.user = user;
+    })
+    console.log(this.user);
+
     this.subscriptions.push(this.dataStoreService.placesChanged.subscribe((places) => {
       this.places = places.slice().sort((a, b) => (b.rating - a.rating))
     }));

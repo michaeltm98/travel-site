@@ -6,8 +6,14 @@
                 <input formControlName="name" type="text" style="margin-bottom: 10px;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
                 <input  name="image" formControlName="image"  (ngModelChange)="updateImageUrl($event)" type="text" style="margin-bottom: 10px;" class="form-control" id="exampleInputPassword1" placeholder="Enter Image Url">
                 <input formControlName="description" type="text" style="margin-bottom: 10px;" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
+                <rating style="background: rgba(0, 0, 0, 0.1); padding-top: 5px; border-radius: 10px;" formControlName="rating"></rating>
+
             </div>
+
+            
             <button  type="submit" class="btn btn-primary">Submit</button>
+            <br>
+
         
           <!-- TODO: make background image the url entered into the image on this page. Unblur it. -->
           
@@ -26,6 +32,8 @@
                       <p  id="descriptionmirror" style="padding: 10px"> {{placeForm.value.description}} </p>
                   </div>
               </div>
+              <rating [ngModel]="placeForm.value.rating" [readonly]="true"></rating>
+
           </div>
         </div>
       

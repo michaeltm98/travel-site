@@ -19,6 +19,7 @@ import { CognitoService } from './shared/cognito.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmCodeModalComponent } from './modals/confirm-code-modal/confirm-code-modal.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
+import {RatingModule} from "ngx-rating";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UserPageComponent } from './components/user-page/user-page.component';
     NgbModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RatingModule 
   ],
   entryComponents: [ConfirmCodeModalComponent],
   providers: [DataStoreService, BackgroundService, CognitoService],

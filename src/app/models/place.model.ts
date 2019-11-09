@@ -4,9 +4,26 @@ export class Place {
     private _author: string;
     private _placeId: string;
     private _description: string;
+    private _rating: number;
 
 
 
+
+    /**
+     * Getter rating
+     * @return {number}
+     */
+	public get rating(): number {
+		return this._rating;
+	}
+
+    /**
+     * Setter rating
+     * @param {number} value
+     */
+	public set rating(value: number) {
+		this._rating = value;
+	}
 
     /**
      * Getter placeId

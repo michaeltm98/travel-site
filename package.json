@@ -25,6 +25,7 @@
     "bootstrap": "^4.3.1",
     "google-search": "0.0.5",
     "https": "^1.0.0",
+    "ngx-rating": "0.0.9",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "underscore": "^1.9.1",
